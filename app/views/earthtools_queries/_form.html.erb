@@ -1,0 +1,7 @@
+<%= form_for @earthtools_query do |f| %>
+  <%= f.label "Latitude" %>
+  <%= f.text_field :lat %>
+  <%= f.label "Longitude" %>
+  <%= f.text_field :lon %>
+  <%= f.submit "Get Time" %>
+<% end %>

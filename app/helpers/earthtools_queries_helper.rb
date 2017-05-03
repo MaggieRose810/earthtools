@@ -1,0 +1,2 @@
+module EarthtoolsQueriesHelper
+end
