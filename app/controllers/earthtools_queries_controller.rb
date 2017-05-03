@@ -23,6 +23,7 @@ class EarthtoolsQueriesController < ApplicationController
 
   def show
     @earthtools_query = EarthtoolsQuery.find(params[:id])
+    @localtime = EarthtoolLocaltime.new(@earthtools_query.response)
   end
 
   private
