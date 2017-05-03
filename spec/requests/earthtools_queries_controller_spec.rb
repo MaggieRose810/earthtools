@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe EarthtoolsQueriesController, type: :request do
   describe 'POST /earthtools_queries' do
+    before do
+      allow(EarthtoolsClient).to receive(:timezone_localtime).and_return("testing")
+    end
     it "creates a query" do
       expect do
         post('/earthtools_queries',
@@ -10,6 +13,7 @@ describe EarthtoolsQueriesController, type: :request do
           })
       end.to change { EarthtoolsQuery.count}.by(1)
     end
+
     it "does not create a query" do
       expect do
         post('/earthtools_queries',

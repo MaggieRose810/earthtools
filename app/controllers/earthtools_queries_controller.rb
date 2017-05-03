@@ -1,3 +1,4 @@
+require 'earthtools_client'
 class EarthtoolsQueriesController < ApplicationController
   before_action :force_initialize_session, only: :create
 
@@ -7,10 +8,10 @@ class EarthtoolsQueriesController < ApplicationController
 
   def create
     @earthtools_query = EarthtoolsQuery.new(earthtools_query_params)
-
+    response = EarthtoolsClient.timezone_localtime(lat: @earthtools_query.lat, lon: @earthtools_query.lon)
     @earthtools_query.assign_attributes(
       session_id: session.id,
-      response: "test"
+      response: response
     )
 
     if @earthtools_query.save
