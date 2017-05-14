@@ -14,6 +14,6 @@ class EarthtoolLocaltime
   end
 
   def localtime_tag
-    parsed_response.xpath("//localtime").first
+    parsed_response.xpath("//localtime").first if parsed_response
   end
 end
